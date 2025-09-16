@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Redirecting...</title>
+        <script>
+            // Redirect to index.html so React Router can handle the route
+            const path = window.location.pathname.replace('/post', '');
+            window.location.href = '/post/index.html' + path;
+        </script>
+    </head>
+
+    <body></body>
+
+</html>

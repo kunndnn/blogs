@@ -1,7 +1,7 @@
 {
   "name": "blog-site",
   "private": true,
-  "homepage": "https://kunndnn.github.io/blog",
+  "homepage": "https://kunndnn.github.io/blogs",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
