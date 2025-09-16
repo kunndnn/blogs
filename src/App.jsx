@@ -8,14 +8,14 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/blogs">
       <Navbar />
       <Routes>
         <Route path="/" element={<><Hero /><Home /></>} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/post/:id" element={<PostDetail />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }
