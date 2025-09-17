@@ -10,6 +10,7 @@ const steps = [
     { name: 'Update vite.config.js' },
     { name: 'Add deploy scripts' },
     { name: 'Add homepage key' },
+    { name: 'Deploy project to github' },
 ];
 const ReactGithub = () => {
     const [visible, setVisible] = useState(false);
@@ -78,7 +79,7 @@ const ReactGithub = () => {
                                     onClick={() => document.getElementById(`step-${key++}`).scrollIntoView({ behavior: "smooth" })}
                                     className="text-blue-500 hover:cursor-pointer"
                                 >
-                                    Step {name}
+                                 {name}
                                 </button>
                             </li>
                         ))}
