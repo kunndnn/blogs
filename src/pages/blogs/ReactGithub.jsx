@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Code from "../../components/Code";
-import Image from '../../components/Image'
-import img1 from '../../assets/githubReact/image1.png'
-import img2 from '../../assets/githubReact/image2.png'
-import img3 from '../../assets/githubReact/image3.png'
+import Image from '../../components/Image';
+import img1 from '../../assets/images/blogs/githubReact/image1.png';
+import img2 from '../../assets/images/blogs/githubReact/image2.png';
+import img3 from '../../assets/images/blogs/githubReact/image3.png';
+
 const steps = [
     { name: 'Create GitHub repository' },
     { name: 'Install gh-pages' },
@@ -79,7 +80,7 @@ const ReactGithub = () => {
                                     onClick={() => document.getElementById(`step-${key++}`).scrollIntoView({ behavior: "smooth" })}
                                     className="text-blue-500 hover:cursor-pointer"
                                 >
-                                 {name}
+                                    {name}
                                 </button>
                             </li>
                         ))}

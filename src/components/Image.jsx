@@ -1,15 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Image({ src, alt, styles }) {
     const [isOpen, setIsOpen] = useState(false);
+    // ✅ Lock scroll when modal is open
+
+    useEffect(() => {
+        let { overflow } = document.body.style;
+        if (isOpen) overflow = "hidden";
+        else overflow = "auto";
+
+        // Cleanup when component unmounts
+        return () => {
+            overflow = "auto";
+        };
+    }, [isOpen]);
 
     return (
         <>
-            {/* Thumbnail / normal image */}
+            {/* Thumbnail */}
             <img
                 src={src}
                 alt={alt}
-                className={`mt-4 rounded shadow-md w-full max-w-md ${styles ?? ''}`}
+                className={`mt-4 rounded shadow-md w-full max-w-md cursor-pointer ${styles ?? ""}`}
                 onClick={() => setIsOpen(true)}
                 loading="lazy"
             />
@@ -17,14 +29,29 @@ export default function Image({ src, alt, styles }) {
             {/* Modal */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black/70 bg-opacity-70 flex items-center justify-center z-50"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
                     onClick={() => setIsOpen(false)}
                 >
-                    <img
-                        src={src}
-                        alt={alt}
-                        className="max-w-full max-h-full rounded shadow-lg"
-                    />
+                    {/* Content wrapper so clicks on X don’t trigger modal close */}
+                    <div
+                        className="relative max-w-3xl max-h-[90vh] w-auto"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute -top-3 -right-3 bg-black/70 text-white px-3 py-1 rounded-full hover:bg-black transition cursor-pointer"
+                        >
+                            ✕
+                        </button>
+
+                        {/* Image */}
+                        <img
+                            src={src}
+                            alt={alt}
+                            className="rounded shadow-lg max-w-full max-h-[90vh] object-contain"
+                        />
+                    </div>
                 </div>
             )}
         </>

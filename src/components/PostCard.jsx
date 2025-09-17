@@ -10,7 +10,7 @@ export default function PostCard({ post }) {
     >
       <Link to={`/post/${post.id}`}>
         <img
-          src={`https://picsum.photos/600/300?random=${post.id}`}
+          src={post.image}
           alt={post.title}
           className="w-full h-48 object-cover"
           loading="lazy"
