@@ -5,13 +5,11 @@ export default function Image({ src, alt, styles }) {
     // ✅ Lock scroll when modal is open
 
     useEffect(() => {
-        let { overflow } = document.body.style;
-        if (isOpen) overflow = "hidden";
-        else overflow = "auto";
+        const prevOverflow = document.body.style.overflow;
+        document.body.style.overflow = isOpen ? "hidden" : prevOverflow;
 
-        // Cleanup when component unmounts
         return () => {
-            overflow = "auto";
+            document.body.style.overflow = prevOverflow;
         };
     }, [isOpen]);
 
@@ -29,7 +27,7 @@ export default function Image({ src, alt, styles }) {
             {/* Modal */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm mb-0"
                     onClick={() => setIsOpen(false)}
                 >
                     {/* Content wrapper so clicks on X don’t trigger modal close */}
