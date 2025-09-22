@@ -38,7 +38,7 @@ const Code = ({ parts = [], styles }) => {
           onClick={handleCopy}
           className="text-gray-300 hover:text-white transition"
         >
-          {copied ? <FaClipboardCheck /> : <FaRegClipboard />}
+          {copied ? <FaClipboardCheck /> : <FaRegClipboard className="cursor-pointer"/>}
         </button>
 
         {copied && (

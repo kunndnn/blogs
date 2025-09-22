@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
 import Code from "../../components/Code";
 import Image from '../../components/Image';
+import Sidebar from "../../components/Sidebar";
+import Step from "../../components/Step";
+
 import img1 from '../../assets/images/blogs/githubReact/image1.png';
 import img2 from '../../assets/images/blogs/githubReact/image2.png';
 import img3 from '../../assets/images/blogs/githubReact/image3.png';
@@ -13,27 +15,11 @@ const steps = [
     { name: 'Add homepage key' },
     { name: 'Deploy project to github' },
 ];
+
 const ReactGithub = () => {
-    const [visible, setVisible] = useState(false);
+    const step = (num) => <Step stepNum={num} />;
 
-    // Show button after scrolling 300px
-    useEffect(() => {
-        const toggleVisibility = () => {
-            setVisible(window.scrollY > 300);
-        };
-        window.addEventListener("scroll", toggleVisibility);
-        return () => window.removeEventListener("scroll", toggleVisibility);
-    }, []);
-
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
-    const step = (stepNum) => (
-        <h3 id={`step-${stepNum}`} className="mt-8 text-2xl font-semibold">
-            Step {stepNum}:
-        </h3>
-    ); return (
+    return (
         <>
             <div className="max-w-7xl mx-auto px-6 py-8 grid lg:grid-cols-12 gap-8">
                 {/* Main content */}
@@ -69,35 +55,9 @@ const ReactGithub = () => {
                         <p> Replace the username with your github username and github-repo-name with your github repository name.</p>
                     </p>
                 </div>
-
-                {/* Sidebar */}
-                <div className="hidden lg:block lg:col-span-4 sticky top-20 space-y-4">
-                    <h3 className="text-xl font-semibold mb-2">Steps</h3>
-                    <ul className="list-decimal list-inside text-gray-700 space-y-2">
-                        {steps.map(({ name }, key) => (
-                            <li key={key}>
-                                <button
-                                    onClick={() => document.getElementById(`step-${key++}`).scrollIntoView({ behavior: "smooth" })}
-                                    className="text-blue-500 hover:cursor-pointer"
-                                >
-                                    {name}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <Sidebar steps={steps} />
             </div>
-            {visible && (
-                <button
-                    onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition z-50"
-                    aria-label="Back to top"
-                >
-                    ↑
-                </button>
-            )}
         </>
-
     );
 };
 

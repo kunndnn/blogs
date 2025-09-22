@@ -3,8 +3,7 @@ import { info } from "../data/info";
 
 const Footer = () => {
     return (
-        <footer className="bg-gradient-to-r from-green-200 to-green-100 shadow-inner">
-            <div className="flex items-center justify-between p-5">
+        <footer className="bg-gradient-to-r from-green-200 to-green-100 shadow-inner flex items-center justify-between p-5">
                 {/* Left side text */}
                 <span className="text-sm text-gray-700">
                     © {new Date().getFullYear()} <span className="font-semibold">Blogs</span>. Made with <span className="text-red-500">❤️</span>
@@ -45,7 +44,6 @@ const Footer = () => {
                         <FaCode size={22} />
                     </span>
                 </div>
-            </div>
         </footer>
     );
 };
