@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi"; // Feather icons
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full bg-white shadow-md px-6 py-4 z-50">
+      <nav className="fixed top-0 left-0 w-full bg-white shadow-md px-6 py-4 z-50 backdrop-blur supports-[backdrop-filter]:bg-neutral-500/200">
         <div className="flex justify-between items-center">
           <div className="text-2xl font-bold text-gray-800">Tech Blogs</div>
 

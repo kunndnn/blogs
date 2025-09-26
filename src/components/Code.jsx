@@ -38,7 +38,7 @@ const Code = ({ parts = [], styles }) => {
           onClick={handleCopy}
           className="text-gray-300 hover:text-white transition"
         >
-          {copied ? <FaClipboardCheck /> : <FaRegClipboard className="cursor-pointer"/>}
+          {copied ? <FaClipboardCheck /> : <FaRegClipboard className="cursor-pointer" />}
         </button>
 
         {copied && (
@@ -50,9 +50,20 @@ const Code = ({ parts = [], styles }) => {
 
       {/* Code block */}
       <pre
-        className={`bg-gray-800 text-green-400 p-3 rounded-lg overflow-x-auto ${styles ?? ""}`}
+        className={`
+    w-full 
+    max-w-full
+    bg-gray-800 
+    text-green-400 
+    p-3 
+    rounded-lg 
+    overflow-x-auto 
+    whitespace-pre-wrap 
+    break-words
+    ${styles ?? ""}
+  `}
       >
-        <code className="leading-relaxed">
+        <code className="leading-relaxed text-sm sm:text-base md:text-lg">
           {parts.map((p, i) =>
             p.type === "placeholder" ? (
               <input
@@ -60,15 +71,16 @@ const Code = ({ parts = [], styles }) => {
                 value={placeholders[i]}
                 onChange={(e) => handleChange(i, e.target.value)}
                 className="
-                  bg-gray-700
-                  text-yellow-300
-                  px-0.5
-                  mx-0.20
-                  rounded-sm
-                  focus:border-yellow-200 
-                  focus:text-yellow-100
-                  focus:outline-none
-                "
+            bg-gray-700
+            text-yellow-300
+            px-0.5
+            mx-0.5
+            rounded-sm
+            focus:border-yellow-200 
+            focus:text-yellow-100
+            focus:outline-none
+            min-w-[2ch]
+          "
                 size={placeholders[i].length || 4}
               />
             ) : (

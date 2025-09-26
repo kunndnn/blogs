@@ -52,7 +52,7 @@ const ReactGithub = () => {
                     </p>
                     <Code parts={[{ type: 'text', text: 'npm run deploy' }]} />
                     <p>To access the live url of the web app visit the  <a href="https://username.github.io/github-repo-name">https://username.github.io/github-repo-name .</a>
-                        <p> Replace the username with your github username and github-repo-name with your github repository name.</p>
+                        Replace the username with your github username and github-repo-name with your github repository name.
                     </p>
                 </div>
                 <Sidebar steps={steps} />
