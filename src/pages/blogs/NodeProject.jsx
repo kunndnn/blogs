@@ -1,7 +1,5 @@
-import Code from "../../components/Code";
-import Image from '../../components/Image';
-import Sidebar from "../../components/Sidebar";
-import Step from "../../components/Step";
+import utility from '../../components/Utilities';
+const { Code, Image, Sidebar, Step } = utility;
 
 import img1 from '../../assets/images/blogs/nodejs/img1.png';
 import img2 from '../../assets/images/blogs/nodejs/img2.png';
@@ -202,9 +200,9 @@ const NodeProject = () => {
   const step = (num) => <Step stepNum={num} />;
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8 grid lg:grid-cols-12 gap-8">
+    <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-12 gap-8">
       {/* Main content */}
-      <div className="lg:col-span-8 space-y-6">
+      <div className="col-span-12 lg:col-span-8 space-y-6">
         <h2 className="text-3xl font-bold mb-4">Node.js project structure</h2>
         <p>This blog explains how to setup the Node.js project structure.</p>
 

@@ -31,65 +31,60 @@ const Code = ({ parts = [], styles }) => {
   };
 
   return (
-    <div className="relative mt-2">
-      {/* Copy button with inline tooltip */}
-      <div className="absolute right-2 top-2 flex items-center space-x-2">
+    <>
+      {/* Code block wrapper */}
+      <div className="relative w-full">
+        <pre
+          className={`w-full bg-gray-800 text-green-400 p-3 rounded-lg overflow-x-auto whitespace-pre-wrap break-words ${styles ?? ""}`}
+        >
+          <code className="leading-relaxed text-sm sm:text-base md:text-lg">
+            {parts.map((p, i) =>
+              p.type === "placeholder" ? (
+                <input
+                  key={i}
+                  value={placeholders[i]}
+                  onChange={(e) => handleChange(i, e.target.value)}
+                  className="
+              bg-gray-700
+              text-yellow-300
+              px-0.5
+              mx-0.5
+              rounded-sm
+              focus:border-yellow-200 
+              focus:text-yellow-100
+              focus:outline-none
+              min-w-[2ch]
+            "
+                  size={placeholders[i].length || 4}
+                />
+              ) : (
+                <span key={i}>{p.text}</span>
+              )
+            )}
+          </code>
+        </pre>
+
+        {/* Copy button */}
         <button
           onClick={handleCopy}
-          className="text-gray-300 hover:text-white transition"
+          className="absolute top-2 right-2 text-gray-300 hover:text-white transition p-1 sm:p-2 rounded bg-gray-700/60"
         >
-          {copied ? <FaClipboardCheck /> : <FaRegClipboard className="cursor-pointer" />}
+          {copied ? (
+            <FaClipboardCheck className="text-base sm:text-lg" />
+          ) : (
+            <FaRegClipboard className="cursor-pointer text-base sm:text-lg" />
+          )}
         </button>
 
+        {/* Tooltip */}
         {copied && (
-          <span className="text-xs text-white bg-gray-700 px-2 py-1 rounded shadow">
+          <span className="absolute -bottom-6 right-2 text-[10px] sm:text-xs text-white bg-gray-700 px-2 py-1 rounded shadow">
             Copied!
           </span>
         )}
       </div>
 
-      {/* Code block */}
-      <pre
-        className={`
-    w-full 
-    max-w-full
-    bg-gray-800 
-    text-green-400 
-    p-3 
-    rounded-lg 
-    overflow-x-auto 
-    whitespace-pre-wrap 
-    break-words
-    ${styles ?? ""}
-  `}
-      >
-        <code className="leading-relaxed text-sm sm:text-base md:text-lg">
-          {parts.map((p, i) =>
-            p.type === "placeholder" ? (
-              <input
-                key={i}
-                value={placeholders[i]}
-                onChange={(e) => handleChange(i, e.target.value)}
-                className="
-            bg-gray-700
-            text-yellow-300
-            px-0.5
-            mx-0.5
-            rounded-sm
-            focus:border-yellow-200 
-            focus:text-yellow-100
-            focus:outline-none
-            min-w-[2ch]
-          "
-                size={placeholders[i].length || 4}
-              />
-            ) : (
-              <span key={i}>{p.text}</span>
-            )
-          )}
-        </code>
-      </pre>
-    </div>
+    </>
   );
 };
 

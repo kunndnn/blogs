@@ -19,7 +19,7 @@ export default function Image({ src, alt, styles }) {
             <img
                 src={src}
                 alt={alt}
-                className={`mt-4 rounded shadow-md w-full max-w-md cursor-pointer ${styles ?? ""}`}
+                className={`mt-4 rounded shadow-md w-full max-w-[20rem] md:max-w-md cursor-pointer ${styles ?? ""}`}
                 onClick={() => setIsOpen(true)}
                 loading="lazy"
             />
@@ -27,7 +27,7 @@ export default function Image({ src, alt, styles }) {
             {/* Modal */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm mb-0"
+                    className="fixed inset-0 z-60 flex items-center justify-center bg-black/60 backdrop-blur-sm mb-0"
                     onClick={() => setIsOpen(false)}
                 >
                     {/* Content wrapper so clicks on X don’t trigger modal close */}
@@ -47,7 +47,7 @@ export default function Image({ src, alt, styles }) {
                         <img
                             src={src}
                             alt={alt}
-                            className="rounded shadow-lg max-w-full max-h-[90vh] object-contain"
+                            className="rounded shadow-lg max-w-sm md:max-w-full max-h-[90vh] object-contain"
                         />
                     </div>
                 </div>

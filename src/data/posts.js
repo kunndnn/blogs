@@ -1,8 +1,11 @@
 import ReactGithub from "../pages/blogs/ReactGithub";
 import gitThumb from "../assets/images/blogs/githubReact/thumbnail.png";
-import nodeThumb from "../assets/images/blogs/nodejs/thumbnail.png";
 
 import NodeProject from "../pages/blogs/NodeProject";
+import nodeThumb from "../assets/images/blogs/nodejs/thumbnail.png";
+
+import Docker from "../pages/blogs/Docker";
+import dockerhumb from "../assets/images/blogs/docker/thumbnail.png";
 
 export const posts = [
   {
@@ -18,5 +21,12 @@ export const posts = [
     date: "2025-09-22",
     image: nodeThumb,
     component: NodeProject,
+  },
+  {
+    id: "docker-basics",
+    title: "Basics of docker",
+    date: "2025-09-29",
+    image: dockerhumb,
+    component: Docker,
   },
 ];
