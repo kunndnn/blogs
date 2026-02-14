@@ -67,7 +67,7 @@ const Code = ({ parts = [], styles }) => {
         {/* Copy button */}
         <button
           onClick={handleCopy}
-          className="absolute top-2 right-2 text-gray-300 hover:text-white transition p-1 sm:p-2 rounded bg-gray-700/60"
+          className="absolute top-2 right-2 text-white/70 hover:text-white transition p-1 sm:p-2 rounded bg-brand-primary/40"
         >
           {copied ? (
             <FaClipboardCheck className="text-base sm:text-lg" />

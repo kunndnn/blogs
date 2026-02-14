@@ -11,8 +11,8 @@ const steps = [
   { name: 'check installed docker version' },
   { name: 'Create docker image of the project' },
   { name: 'Push image to the docker hub' },
-  { name: 'Docker container commands' },
-  { name: 'Docker images commands' },
+  { name: 'Deployment container commands' },
+  { name: 'Deployment images commands' },
 ];
 
 const codes = {
@@ -46,7 +46,7 @@ docker restart CONTAINER_ID
 `,
 }
 
-const Docker = () => {
+const Deployment = () => {
   const step = (num) => <Step stepNum={num} />;
 
   return (
@@ -68,7 +68,7 @@ const Docker = () => {
         <h3 className='mt-8 text-2xl font-semibold scroll-mt-24 text-text-main' id='step-3'> Create a docker image of the project</h3>
         <ul className='list-decimal lt-5'>
           <li>
-            <p>Create Docker image, first of all create a <b>Dockerfile</b> in the root of the project</p>
+            <p>Create Deployment image, first of all create a <b>Dockerfile</b> in the root of the project</p>
             <Code parts={[{ type: "text", text: codes.dockerFile }]} />
           </li>
           <li>
@@ -107,11 +107,11 @@ const Docker = () => {
             <li>Choose Public or Private.</li>
             <li>Click Create.</li>
             <Image src={img2} alt='create repo in docker hub' />
-            <li className='mt-5'>Now login to the Docker using the below command.
+            <li className='mt-5'>Now login to the Deployment using the below command.
               <Code parts={[{ type: 'text', text: 'docker login' }]} />
             </li>
             <li>
-              Suppose your Docker Hub username is yourusername and your repo is fastapi-backend.
+              Suppose your Deployment Hub username is yourusername and your repo is fastapi-backend.
               <Code parts={[
                 { type: "text", text: `docker tag ` },
                 { type: "placeholder", text: `local-image-name` },
@@ -134,7 +134,7 @@ const Docker = () => {
             </li>
             <li>
               <h2>Run from anywhere</h2>
-              On any system with Docker installed, you (or anyone) can now do:
+              On any system with Deployment installed, you (or anyone) can now do:
               <Code parts={[{ type: 'text', text: codes.dockerCmd }]} />
 
             </li>
@@ -176,9 +176,9 @@ const Docker = () => {
         <Code parts={[{ type: "text", text: "docker rmi -f image_id" }]} />
         <p>Inspect an image</p>
         <Code parts={[{ type: "text", text: "docker inspect image_id" }]} />
-        <p>Push an image to Docker Hub</p>
+        <p>Push an image to Deployment Hub</p>
         <Code parts={[{ type: "text", text: "docker push username/repo:tag" }]} />
-        <p>Pull an image from Docker Hub</p>
+        <p>Pull an image from Deployment Hub</p>
         <Code parts={[{ type: "text", text: "docker pull username/repo:tag" }]} />
         <p>Prune unused images
           <span className='block'>Remove all dangling images (not tagged, not used):</span>
@@ -195,4 +195,4 @@ const Docker = () => {
   )
 }
 
-export default Docker
+export default Deployment

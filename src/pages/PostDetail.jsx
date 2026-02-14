@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { posts } from "../data/posts";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function PostDetail() {
   const { id } = useParams();
@@ -26,20 +27,54 @@ export default function PostDetail() {
 
   return (
     <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-4xl mx-auto"
+      >
       <div className="p-6">
-        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
-        <p className="text-gray-500 mb-6">{post.date}</p>
-        <BlogComponent /> {/* render the actual blog component */}
+          <motion.h1
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-4xl font-extrabold mb-4 text-text-main tracking-tight"
+          >
+            {post.title}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-text-muted mb-8 font-medium uppercase tracking-widest text-sm"
+          >
+            {post.date}
+          </motion.p>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
+            <BlogComponent />
+          </motion.div>
       </div>
-      {visible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition z-50 cursor-pointer"
-          aria-label="Back to top"
-        >
-          ↑
-        </button>
-      )}
+        <AnimatePresence>
+          {visible && (
+            <motion.button
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={scrollToTop}
+              className="fixed bottom-8 right-8 bg-brand-primary text-white p-4 rounded-full shadow-premium transition-colors hover:bg-brand-secondary z-50 cursor-pointer"
+              aria-label="Back to top"
+            >
+              ↑
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </>
   );
 }

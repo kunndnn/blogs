@@ -38,7 +38,7 @@ export default function Image({ src, alt, styles }) {
                         {/* Close Button */}
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="absolute -top-3 -right-3 bg-black/70 text-white px-3 py-1 rounded-full hover:bg-black transition cursor-pointer"
+                            className="absolute -top-3 -right-3 bg-brand-primary/80 text-white px-3 py-1 rounded-full hover:bg-brand-secondary transition cursor-pointer"
                         >
                             ✕
                         </button>

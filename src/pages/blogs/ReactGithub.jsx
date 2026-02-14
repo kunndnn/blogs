@@ -21,7 +21,7 @@ const ReactGithub = () => {
         <div className="max-w-7xl mx-auto px-6 py-8 grid lg:grid-cols-12 gap-8">
             {/* Main content */}
             <div className="lg:col-span-8 space-y-6">
-                <h2 className="text-3xl font-bold mb-4">Host React App with GitHub</h2>
+                <h2 className="text-3xl font-bold mb-4 text-text-main">Host React App with GitHub</h2>
                 <p>This blog explains how to deploy a React app using GitHub Pages.</p>
 
                 {step(1)}

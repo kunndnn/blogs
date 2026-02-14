@@ -203,7 +203,7 @@ const NodeProject = () => {
     <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-12 gap-8">
       {/* Main content */}
       <div className="col-span-12 lg:col-span-8 space-y-6">
-        <h2 className="text-3xl font-bold mb-4">Node.js project structure</h2>
+        <h2 className="text-3xl font-bold mb-4 text-text-main">Node.js project structure</h2>
         <p>This blog explains how to setup the Node.js project structure.</p>
 
         {step(1)}
@@ -211,7 +211,7 @@ const NodeProject = () => {
         <ul className="list-disc ml-5">
           <li>Download and install
             <a
-              className="cursor-pointer mx-1 text-green-700"
+              className="cursor-pointer mx-1 text-brand-primary hover:text-brand-secondary underline decoration-brand-secondary"
               onClick={() => window.open("https://nodejs.org/en", "_blank")}
             >Node.js</a>
             (LTS version recommended).</li>
@@ -306,7 +306,7 @@ const NodeProject = () => {
         <Code parts={[{ type: 'text', text: 'npm run dev' }]} />
         <p>Now you can access your project over the <span
           onClick={() => window.open("http://localhost:3000", "_blank")}
-          className="text-blue-500 cursor-pointer">http://localhost:3000</span> URL</p>
+          className="text-brand-primary hover:text-brand-secondary cursor-pointer">http://localhost:3000</span> URL</p>
       </div>
 
       {/* Sidebar */}

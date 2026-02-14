@@ -7,6 +7,8 @@ import nodeThumb from "../assets/images/blogs/nodejs/thumbnail.png";
 import Docker from "../pages/blogs/Docker";
 import dockerhumb from "../assets/images/blogs/docker/thumbnail.png";
 
+import Deployment from "../pages/blogs/Deployment";
+
 export const posts = [
   {
     id: "host-react-app-with-github",
@@ -29,4 +31,11 @@ export const posts = [
     image: dockerhumb,
     component: Docker,
   },
+  // {
+  //   id: "deployment",
+  //   title: "Project deployment",
+  //   date: "2025-11-20",
+  //   image: dockerhumb,
+  //   component: Deployment,
+  // },
 ];
