@@ -26,8 +26,8 @@ const itemVariants = {
 
 export default function Blog() {
   return (
-    <div className="p-8 bg-background-base min-h-screen bg-gray-950">
-      <h2 className="text-3xl font-bold mb-6 text-center text-text-main text-white">
+    <div className="p-8 bg-background-base min-h-screen">
+      <h2 className="text-4xl md:text-5xl font-black mb-12 text-center text-white tracking-tighter">
         Latest Posts
       </h2>
       <motion.div
@@ -37,8 +37,8 @@ export default function Blog() {
         viewport={{ once: true, amount: 0.1 }}
         className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
       >
-        {posts.map((post) => (
-          <motion.div key={post.id} variants={itemVariants}>
+        {posts?.map((post) => (
+          <motion.div key={post?.id} variants={itemVariants}>
             <PostCard post={post} />
           </motion.div>
         ))}

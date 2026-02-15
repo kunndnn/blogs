@@ -12,25 +12,27 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 120, damping: 20 }}
-        className="fixed top-0 left-0 w-full glass px-6 py-4 z-50"
+        className="fixed top-0 left-0 w-full glass px-4 md:px-6 py-4 z-50"
       >
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold text-text-main">Tech Blogs</div>
+          <Link to="/" className="text-2xl font-black tracking-tighter text-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">Tech</span>Blogs
+          </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex space-x-6">
-            <Link to="/" className="text-text-muted hover:text-brand-primary font-medium">
+          <div className="hidden md:flex space-x-8">
+            <Link to="/" className="text-text-muted hover:text-white font-semibold transition-colors">
               Home
             </Link>
-            <Link to="/blog" className="text-text-muted hover:text-brand-primary font-medium">
+            <Link to="/blog" className="text-text-muted hover:text-white font-semibold transition-colors">
               Blogs
             </Link>
           </div>
 
           {/* Mobile Hamburger */}
           <div className="md:hidden">
-            <button onClick={() => setOpen(!open)}>
-              {open ? <FiX className="w-6 h-6 text-text-muted" /> : <FiMenu className="w-6 h-6 text-text-muted" />}
+            <button onClick={() => setOpen(!open)} className="p-2 bg-white/5 rounded-xl border border-white/10 text-white">
+              {open ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -39,22 +41,22 @@ export default function Navbar() {
         <AnimatePresence>
           {open && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="flex flex-col mt-4 md:hidden space-y-2 overflow-hidden"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="flex flex-col mt-4 md:hidden space-y-2 p-4 glass rounded-2xl border border-white/5 shadow-2xl"
             >
               <Link
                 to="/"
                 onClick={() => setOpen(false)}
-                className="text-text-muted hover:text-brand-primary font-medium p-2 rounded hover:bg-brand-primary/10 transition-colors"
+                className="text-text-muted hover:text-white font-bold p-3 rounded-xl hover:bg-white/5 transition-all text-center"
               >
                 Home
               </Link>
               <Link
                 to="/blog"
                 onClick={() => setOpen(false)}
-                className="text-text-muted hover:text-brand-primary font-medium p-2 rounded hover:bg-brand-primary/10 transition-colors"
+                className="text-text-muted hover:text-white font-bold p-3 rounded-xl hover:bg-white/5 transition-all text-center"
               >
                 Blogs
               </Link>

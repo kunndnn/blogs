@@ -8,8 +8,8 @@ import img3 from '../../assets/images/blogs/docker/img3.png';
 
 const steps = [
   { name: 'Install docker' },
-  { name: 'check installed docker version' },
-  { name: 'Create docker image of the project' },
+  { name: 'Check installed docker version' },
+  { name: 'Create docker image of project' },
   { name: 'Push image to the docker hub' },
   { name: 'Docker container commands' },
   { name: 'Docker images commands' },
@@ -65,11 +65,12 @@ const Docker = () => {
 
 
 
-        <h3 className='mt-8 text-2xl font-semibold scroll-mt-24 text-text-main' id='step-3'> Create a docker image of the project</h3>
-        <ul className='list-decimal lt-5'>
+        {step(3)}
+        <h3 className='text-2xl font-semibold text-text-main'> Create a docker image of the project</h3>
+        <ul className='list-decimal ml-5'>
           <li>
             <p>Create Docker image, first of all create a <b>Dockerfile</b> in the root of the project</p>
-            <Code parts={[{ type: "text", text: codes.dockerFile }]} />
+            <Code parts={[{ type: "text", text: codes?.dockerFile }]} />
           </li>
           <li>
             <p>Now run the below command to make a docker Image file in which we have to pass our desired tag name</p>
@@ -135,7 +136,7 @@ const Docker = () => {
             <li>
               <h2>Run from anywhere</h2>
               On any system with Docker installed, you (or anyone) can now do:
-              <Code parts={[{ type: 'text', text: codes.dockerCmd }]} />
+              <Code parts={[{ type: 'text', text: codes?.dockerCmd }]} />
 
             </li>
           </ul>
@@ -156,7 +157,7 @@ const Docker = () => {
         <p>Remove all stopped containers.</p>
         <Code parts={[{ type: "text", text: "docker container prune" }]} />
         <p>Stop / Start / Restart containers</p>
-        <Code parts={[{ type: "text", text: codes.containerStarts }]} />
+        <Code parts={[{ type: "text", text: codes?.containerStarts }]} />
 
         <h3 className='mt-8 text-2xl font-semibold scroll-mt-24 text-text-main' id='step-6'>Images commands</h3>
         <p>To view all the running images.</p>

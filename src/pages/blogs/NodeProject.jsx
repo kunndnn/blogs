@@ -216,7 +216,7 @@ const NodeProject = () => {
             >Node.js</a>
             (LTS version recommended).</li>
           <li>Verify installation
-            <Code parts={[{ type: 'text', text: codes.versionCheck }]} />
+            <Code parts={[{ type: 'text', text: codes?.versionCheck }]} />
             <Image src={img1} alt="node & npm versions" />
           </li>
         </ul>
@@ -249,42 +249,42 @@ const NodeProject = () => {
         <p>Now create a db.js file inside the config folder and write the below code inside it.</p>
         <Image src={img3} alt="mongoose connection" />
         <Code parts={[{
-          type: 'text', text: codes.connectionFile
+          type: 'text', text: codes?.connectionFile
         }]} />
 
         {step(7)}
         <p>Now create a User.js file inside the models folder.</p>
         <Image src={img4} alt="User model" />
         <Code parts={[{
-          type: 'text', text: codes.modelFile
+          type: 'text', text: codes?.modelFile
         }]} />
 
         {step(8)}
         <p>Now create a authController.js file inside the controllers folder.</p>
         <Image src={img5} alt="controllers" />
         <Code parts={[{
-          type: 'text', text: codes.controller
+          type: 'text', text: codes?.controller
         }]} />
 
         {step(9)}
         <p>Now create a authMiddleware.js file inside the middleware folder.</p>
         <Image src={img6} alt="middleware" />
         <Code parts={[{
-          type: 'text', text: codes.middleware
+          type: 'text', text: codes?.middleware
         }]} />
 
         {step(10)}
         <p>Now create a authRoutes.js file inside the routes folder.</p>
         <Image src={img7} alt="routes" />
         <Code parts={[{
-          type: 'text', text: codes.routes
+          type: 'text', text: codes?.routes
         }]} />
 
         {step(11)}
         <p>Now write the below code inside the inde.jx file.</p>
         <Image src={img8} alt="routes" />
         <Code parts={[{
-          type: 'text', text: codes.indexFile
+          type: 'text', text: codes?.indexFile
         }]} />
 
         {step(12)}
@@ -297,7 +297,7 @@ const NodeProject = () => {
         </ul>
         <Image src={img9} alt="routes" />
         <Code parts={[
-          { type: 'text', text: `${codes.mongoURI}/` },
+          { type: 'text', text: `${codes?.mongoURI}/` },
           { type: 'placeholder', text: 'dbName' },
         ]} />
 

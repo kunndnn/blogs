@@ -3,8 +3,7 @@ import { FaRegClipboard, FaClipboardCheck } from "react-icons/fa6";
 
 const Code = ({ parts = [], styles }) => {
   const [placeholders, setPlaceholders] = useState(
-    parts
-      .map((p, i) => (p.type === "placeholder" ? { [i]: p.text } : null))
+    parts?.map((p, i) => (p.type === "placeholder" ? { [i]: p.text } : null))
       .filter(Boolean)
       .reduce((a, b) => ({ ...a, ...b }), {})
   );
@@ -16,8 +15,7 @@ const Code = ({ parts = [], styles }) => {
   };
 
   const getFullText = () =>
-    parts
-      .map((p, i) => (p.type === "placeholder" ? placeholders[i] : p.text))
+    parts?.map((p, i) => (p.type === "placeholder" ? placeholders[i] : p.text))
       .join("");
 
   const handleCopy = async () => {
@@ -33,32 +31,35 @@ const Code = ({ parts = [], styles }) => {
   return (
     <>
       {/* Code block wrapper */}
-      <div className="relative w-full">
+      <div className={`relative w-full ${styles ?? ""}`}>
         <pre
-          className={`w-full bg-gray-800 text-green-400 p-3 rounded-lg overflow-x-auto whitespace-pre-wrap break-words ${styles ?? ""}`}
+          className={`w-full bg-background-surface text-green-400 p-4 rounded-2xl overflow-x-auto whitespace-pre-wrap break-words border border-white/5 shadow-2xl ${styles ?? ""}`}
         >
           <code className="leading-relaxed text-sm sm:text-base md:text-lg">
-            {parts.map((p, i) =>
-              p.type === "placeholder" ? (
+            {parts?.map((p, i) =>
+              p?.type === "placeholder" ? (
                 <input
                   key={i}
                   value={placeholders[i]}
                   onChange={(e) => handleChange(i, e.target.value)}
                   className="
-              bg-gray-700
-              text-yellow-300
-              px-0.5
-              mx-0.5
-              rounded-sm
-              focus:border-yellow-200 
-              focus:text-yellow-100
-              focus:outline-none
-              min-w-[2ch]
-            "
+                    bg-white/5
+                    text-brand-primary
+                    font-bold
+                    px-1
+                    mx-1
+                    rounded-md
+                    border border-white/10
+                    focus:border-brand-primary/50 
+                    focus:bg-white/10
+                    focus:outline-none
+                    min-w-[2ch]
+                    transition-all
+                  "
                   size={placeholders[i].length || 4}
                 />
               ) : (
-                <span key={i}>{p.text}</span>
+                  <span key={i} className="opacity-90">{p.text}</span>
               )
             )}
           </code>
@@ -67,10 +68,10 @@ const Code = ({ parts = [], styles }) => {
         {/* Copy button */}
         <button
           onClick={handleCopy}
-          className="absolute top-2 right-2 text-white/70 hover:text-white transition p-1 sm:p-2 rounded bg-brand-primary/40"
+          className="absolute top-3 right-3 text-white/50 hover:text-white transition-all p-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10"
         >
           {copied ? (
-            <FaClipboardCheck className="text-base sm:text-lg" />
+            <FaClipboardCheck className="text-base sm:text-lg text-green-400" />
           ) : (
             <FaRegClipboard className="cursor-pointer text-base sm:text-lg" />
           )}
@@ -78,7 +79,7 @@ const Code = ({ parts = [], styles }) => {
 
         {/* Tooltip */}
         {copied && (
-          <span className="absolute -bottom-6 right-2 text-[10px] sm:text-xs text-white bg-gray-700 px-2 py-1 rounded shadow">
+          <span className="absolute -bottom-8 right-2 text-[10px] sm:text-xs text-brand-primary bg-brand-primary/10 border border-brand-primary/20 px-3 py-1 rounded-full backdrop-blur-md shadow-xl">
             Copied!
           </span>
         )}
