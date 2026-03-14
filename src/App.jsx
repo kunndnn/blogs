@@ -1,22 +1,25 @@
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Home from "./pages/Home";
-import Blog from "./pages/Blog";
-import PostDetail from "./pages/PostDetail";
-import Footer from "./components/Footer";
+import { lazy, Suspense } from "react";
+const Navbar = lazy(() => import('./components/Navbar'))
+const Hero = lazy(() => import('./components/Hero'))
+const Home = lazy(() => import('./pages/Home'))
+const Blog = lazy(() => import('./pages/Blog'))
+const PostDetail = lazy(() => import('./pages/PostDetail'))
+const Footer = lazy(() => import('./components/Footer'))
 
 export default function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<><Hero /><Home /></>} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/post/:id" element={<PostDetail />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<><Hero /><Home /></>} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/post/:id" element={<PostDetail />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Suspense>
   );
 }

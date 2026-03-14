@@ -48,7 +48,7 @@ export default function PostDetail() {
             animate={{ y: 0, opacity: 1 }}
             className="text-3xl md:text-6xl font-black text-white leading-tight tracking-tighter"
           >
-            {post.title}
+            {post?.title}
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
@@ -59,7 +59,7 @@ export default function PostDetail() {
             <span className="px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs font-bold rounded-full border border-brand-primary/20">
               Tech Article
             </span>
-            <span className="text-sm font-semibold text-text-muted">{post.date}</span>
+            <span className="text-sm font-semibold text-text-muted">{post?.date}</span>
           </motion.div>
 
           <motion.div

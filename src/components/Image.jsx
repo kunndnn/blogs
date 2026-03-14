@@ -48,6 +48,7 @@ export default function Image({ src, alt, styles }) {
                             src={src}
                             alt={alt}
                             className="rounded shadow-lg max-w-sm md:max-w-full max-h-[90vh] object-contain"
+                            loading="lazy"
                         />
                     </div>
                 </div>

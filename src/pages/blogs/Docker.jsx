@@ -63,8 +63,6 @@ const Docker = () => {
         <p>Now check if docker is installed successfully.</p>
         <Code parts={[{ type: "text", text: "docker -v" }]} />
 
-
-
         {step(3)}
         <h3 className='text-2xl font-semibold text-text-main'> Create a docker image of the project</h3>
         <ul className='list-decimal ml-5'>

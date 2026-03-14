@@ -29,7 +29,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredPosts.map((post) => (
+            {featuredPosts?.map((post) => (
               <PostCard key={post.id} post={post} />
             ))}
           </div>
@@ -45,7 +45,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {topics.map((topic, i) => (
+            {topics?.map((topic, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
