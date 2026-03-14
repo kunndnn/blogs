@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaRegClipboard, FaClipboardCheck } from "react-icons/fa6";
+import Button from "./Button";
 
 const Code = ({ parts = [], styles }) => {
   const [placeholders, setPlaceholders] = useState(
@@ -66,7 +67,7 @@ const Code = ({ parts = [], styles }) => {
         </pre>
 
         {/* Copy button */}
-        <button
+        <Button
           onClick={handleCopy}
           className="absolute top-3 right-3 text-white/50 hover:text-white transition-all p-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10"
         >
@@ -75,7 +76,7 @@ const Code = ({ parts = [], styles }) => {
           ) : (
             <FaRegClipboard className="cursor-pointer text-base sm:text-lg" />
           )}
-        </button>
+        </Button>
 
         {/* Tooltip */}
         {copied && (

@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 const Sidebar = ({ steps }) => {
     if (!steps) return null;
     const convert = (step) => step.replace(/\s+/g, ' ').toLowerCase();
@@ -13,14 +15,14 @@ const Sidebar = ({ steps }) => {
                         <span className="text-xs font-bold text-brand-primary/40 group-hover:text-brand-primary transition-colors shrink-0 mt-1.5 font-mono">
                             {String(index + 1).padStart(2, '0')}
                         </span>
-                        <button
+                        <Button
                             onClick={() =>
                                 document.getElementById(`step-${index + 1}`).scrollIntoView({ behavior: "smooth" })
                             }
                             className="text-text-muted group-hover:text-text-main hover:cursor-pointer text-left transition-all font-medium text-sm leading-relaxed w-full"
                         >
                             {convert(name)}
-                        </button>
+                        </Button>
                     </div>
                 ))}
             </div>

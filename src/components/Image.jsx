@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import Button from "./Button";
 export default function Image({ src, alt, styles }) {
     const [isOpen, setIsOpen] = useState(false);
     // ✅ Lock scroll when modal is open
@@ -36,12 +36,12 @@ export default function Image({ src, alt, styles }) {
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close Button */}
-                        <button
+                        <Button
                             onClick={() => setIsOpen(false)}
                             className="absolute -top-3 -right-3 bg-brand-primary/80 text-white px-3 py-1 rounded-full hover:bg-brand-secondary transition cursor-pointer"
                         >
                             ✕
-                        </button>
+                        </Button>
 
                         {/* Image */}
                         <img

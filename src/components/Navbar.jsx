@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "./Button";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -31,9 +32,9 @@ export default function Navbar() {
 
           {/* Mobile Hamburger */}
           <div className="md:hidden">
-            <button onClick={() => setOpen(!open)} className="p-2 bg-white/5 rounded-xl border border-white/10 text-white">
+            <Button onClick={() => setOpen(!open)} className="p-2 bg-white/5 rounded-xl border border-white/10 text-white">
               {open ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
-            </button>
+            </Button>
           </div>
         </div>
 
