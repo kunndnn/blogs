@@ -1,6 +1,7 @@
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import LoaderLogo from "./components/LoaderLogo";
+
 const Navbar = lazy(() => import('./components/Navbar'))
 const Hero = lazy(() => import('./components/Hero'))
 const Home = lazy(() => import('./pages/Home'))
@@ -10,7 +11,7 @@ const Footer = lazy(() => import('./components/Footer'))
 
 export default function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<LoaderLogo />}>
       <Router>
         <Navbar />
         <Routes>
