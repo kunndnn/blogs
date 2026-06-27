@@ -29,7 +29,7 @@ const Deployment = () => {
       {/* Main content */}
       <div className="lg:col-span-8 space-y-6">
         <h2 className="text-3xl font-bold mb-4 text-text-main">Project Deployment Guide</h2>
-        <p className="text-gray-400">This guide covers manual VPS deployment with Nginx, PM2, and SSL, as well as an alternative deployment using Docker.</p>
+        <p className="text-text-muted">This guide covers manual VPS deployment with Nginx, PM2, and SSL, as well as an alternative deployment using Docker.</p>
 
         {step(1)}
         <h3 className="text-xl font-semibold text-text-main">Install Node.js</h3>
