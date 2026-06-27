@@ -126,10 +126,8 @@ const Deployment = () => {
           {
             type: "text", text: `;
 
-    root /var/www/` },
-          { type: "placeholder", text: "project-path" },
-          { type: "text", text: `/` },
-          { type: "placeholder", text: "buildFolder" },
+    root ` },
+          { type: "placeholder", text: "/var/www/project-path/buildFolder" },
           {
             type: "text", text: `;
     index index.html;

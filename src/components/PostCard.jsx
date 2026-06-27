@@ -8,7 +8,7 @@ export default function PostCard({ post }) {
       whileHover="hover"
       animate="rest"
       whileTap={{ scale: 0.98 }}
-      className="group relative rounded-3xl overflow-hidden bg-background-surface shadow-2xl transition-all duration-300 border border-white/5 hover:border-brand-primary/30"
+      className="group relative rounded-3xl overflow-hidden bg-background-surface shadow-xl transition-all duration-300 border border-border-soft hover:border-brand-primary/30 hover:shadow-2xl"
     >
       <Link to={`/post/${post.id}`} className="block h-full">
         <div className="relative overflow-hidden h-56">
@@ -23,7 +23,7 @@ export default function PostCard({ post }) {
             className="w-full h-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
         <div className="p-4 md:p-6">
           <motion.h2

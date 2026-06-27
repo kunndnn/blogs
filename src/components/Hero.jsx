@@ -7,8 +7,8 @@ export default function Hero() {
     <section className="relative h-[80vh] flex items-center justify-center overflow-hidden bg-background-base">
       {/* Immersive Background Gradients */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-primary/20 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-accent/20 blur-[120px] rounded-full animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-primary/20 blur-[120px] rounded-full animate-pulse-slow" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-accent/20 blur-[120px] rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Floating Glass Elements */}
@@ -39,8 +39,8 @@ export default function Hero() {
           <span className="inline-block px-4 py-1.5 mb-6 text-xs md:text-sm font-semibold tracking-wider text-brand-primary uppercase bg-brand-primary/10 rounded-full border border-brand-primary/20">
             Latest Tech Trends & Tutorials
           </span>
-          <h1 className="text-3xl md:text-7xl font-extrabold text-white drop-shadow-2xl tracking-tighter leading-tight">
-            Elevate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent">Coding Journey</span>
+          <h1 className="text-3xl md:text-7xl font-extrabold text-text-main drop-shadow-2xl tracking-tighter leading-tight">
+            Elevate Your <span className="text-gradient">Coding Journey</span>
           </h1>
           <p className="mt-8 text-lg md:text-2xl text-text-muted max-w-2xl mx-auto font-medium leading-relaxed">
             Deep dives into modern web development, deployment strategies, and the future of software engineering.
@@ -51,7 +51,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-8 py-4 bg-brand-primary hover:bg-brand-primary/90 text-white rounded-2xl font-bold text-lg shadow-lg shadow-brand-primary/25 transition-all group"
+                className="btn-primary text-lg px-8 py-4 group"
               >
                 Start Reading <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
               </motion.button>
@@ -60,7 +60,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold text-lg backdrop-blur-sm transition-all"
+                className="flex items-center gap-2 px-8 py-4 bg-background-elevated text-text-main border border-border-strong hover:border-brand-primary/30 rounded-2xl font-bold text-lg backdrop-blur-sm transition-all"
               >
                 <FaGithub /> Follow on GitHub
               </motion.button>

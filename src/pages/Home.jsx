@@ -52,14 +52,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-brand-primary/30 shadow-2xl transition-all hover:-translate-y-2"
+                className="group p-6 md:p-8 rounded-3xl bg-background-surface border border-border-strong hover:border-brand-primary/30 shadow-lg hover:shadow-xl transition-all hover:-translate-y-2"
               >
                 <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl ${topic.color} text-white flex items-center justify-center text-xl md:text-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
                   {topic.icon}
                 </div>
                 <h4 className="text-lg md:text-xl font-bold text-text-main mb-3">{topic.title}</h4>
                 <p className="text-sm md:text-base text-text-muted font-medium mb-6">{topic.desc}</p>
-                <div className="w-10 h-1 bg-brand-primary/10 group-hover:w-full transition-all duration-500 rounded-full" />
+                <div className="w-10 h-1 bg-brand-primary/20 group-hover:w-full transition-all duration-500 rounded-full" />
               </motion.div>
             ))}
           </div>
@@ -70,9 +70,9 @@ export default function Home() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden p-8 md:p-12 lg:p-20 rounded-[2.5rem] md:rounded-[3rem] bg-gradient-to-br from-brand-primary/10 to-brand-accent/10 border border-white/5"
+          className="relative overflow-hidden p-8 md:p-12 lg:p-20 rounded-[2.5rem] md:rounded-[3rem] bg-gradient-to-br from-brand-primary/10 to-brand-accent/10 border border-border-soft"
         >
-          <div className="absolute top-0 right-0 p-8 opacity-5">
+          <div className="absolute top-0 right-0 p-8 opacity-5 text-text-main">
             <FaCode size={200} />
           </div>
           <div className="relative z-10 max-w-3xl">
@@ -83,11 +83,11 @@ export default function Home() {
               This blog is more than just code. It's about the mindset of building, the challenges of scaling, and the joy of creating something new every day.
             </p>
             <div className="flex flex-wrap gap-4">
-              <div className="px-6 py-4 bg-white/5 rounded-2xl border border-white/10">
+              <div className="px-6 py-4 bg-background-surface rounded-2xl border border-border-soft shadow-lg">
                 <span className="block text-2xl font-bold text-brand-primary">10+</span>
                 <span className="text-sm font-semibold text-text-muted uppercase tracking-tighter">Guides</span>
               </div>
-              <div className="px-6 py-4 bg-white/5 rounded-2xl border border-white/10">
+              <div className="px-6 py-4 bg-background-surface rounded-2xl border border-border-soft shadow-lg">
                 <span className="block text-2xl font-bold text-brand-secondary">5k+</span>
                 <span className="text-sm font-semibold text-text-muted uppercase tracking-tighter">Readers</span>
               </div>

@@ -9,10 +9,9 @@ export default function PostDetail() {
 
   if (!post) return <h2 className="p-6">Post not found!</h2>;
 
-  const BlogComponent = post.component; // get the component
+  const BlogComponent = post.component;
   const [visible, setVisible] = useState(false);
 
-  // Show button after scrolling 300px
   useEffect(() => {
     const toggleVisibility = () => {
       setVisible(window.scrollY > 300);
@@ -37,7 +36,7 @@ export default function PostDetail() {
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          className="cursor-pointer bg-brand-primary text-white px-3 py-1.5 text-sm rounded-xl mt-4 ml-4 md:ml-6"
+          className="cursor-pointer btn-ghost ml-4 md:ml-6 mt-4"
           onClick={() => navigator(-1)}
         >
           ← Back
@@ -46,7 +45,7 @@ export default function PostDetail() {
           <motion.h1
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="text-3xl md:text-6xl font-black text-white leading-tight tracking-tighter"
+            className="text-3xl md:text-6xl font-black text-text-main leading-tight tracking-tighter"
           >
             {post?.title}
           </motion.h1>
@@ -80,7 +79,7 @@ export default function PostDetail() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={scrollToTop}
-              className="fixed bottom-12 right-10 text-brand-primary py-3 px-4 rounded-full shadow-premium transition-colors z-50 cursor-pointer bg-brand-primary/10 hover:bg-brand-secondary/45 hover:text-white"
+              className="fixed bottom-12 right-10 text-brand-primary py-3 px-4 rounded-full shadow-premium transition-colors z-50 cursor-pointer bg-background-elevated hover:bg-brand-primary hover:text-white border border-border-soft hover:border-brand-primary"
               aria-label="Back to top"
             >
               ↑

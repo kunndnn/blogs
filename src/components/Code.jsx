@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaRegClipboard, FaClipboardCheck } from "react-icons/fa6";
-import Button from "./Button";
 
 const Code = ({ parts = [], styles }) => {
   const [placeholders, setPlaceholders] = useState(
@@ -31,10 +30,9 @@ const Code = ({ parts = [], styles }) => {
 
   return (
     <>
-      {/* Code block wrapper */}
       <div className={`relative w-full ${styles ?? ""}`}>
         <pre
-          className={`w-full bg-background-surface text-green-400 p-4 rounded-2xl overflow-x-auto whitespace-pre-wrap break-words border border-white/5 shadow-2xl ${styles ?? ""}`}
+          className={`w-full bg-background-surface text-green-400 p-4 rounded-2xl overflow-x-auto whitespace-pre-wrap break-words border border-border-soft shadow-xl ${styles ?? ""}`}
         >
           <code className="leading-relaxed text-sm sm:text-base md:text-lg">
             {parts?.map((p, i) =>
@@ -44,15 +42,15 @@ const Code = ({ parts = [], styles }) => {
                   value={placeholders[i]}
                   onChange={(e) => handleChange(i, e.target.value)}
                   className="
-                    bg-white/5
+                    bg-background-elevated
                     text-brand-primary
                     font-bold
                     px-1
                     mx-1
                     rounded-md
-                    border border-white/10
+                    border border-border-strong
                     focus:border-brand-primary/50 
-                    focus:bg-white/10
+                    focus:bg-background-surface
                     focus:outline-none
                     min-w-[2ch]
                     transition-all
@@ -66,19 +64,17 @@ const Code = ({ parts = [], styles }) => {
           </code>
         </pre>
 
-        {/* Copy button */}
-        <Button
+        <button
           onClick={handleCopy}
-          className="absolute top-3 right-3 text-white/50 hover:text-white transition-all p-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10"
+          className="absolute top-3 right-3 text-text-muted hover:text-text-main transition-all p-2 rounded-xl bg-background-elevated border border-border-soft backdrop-blur-md hover:bg-background-surface"
         >
           {copied ? (
             <FaClipboardCheck className="text-base sm:text-lg text-green-400" />
           ) : (
             <FaRegClipboard className="cursor-pointer text-base sm:text-lg" />
           )}
-        </Button>
+        </button>
 
-        {/* Tooltip */}
         {copied && (
           <span className="absolute -bottom-8 right-2 text-[10px] sm:text-xs text-brand-primary bg-brand-primary/10 border border-brand-primary/20 px-3 py-1 rounded-full backdrop-blur-md shadow-xl">
             Copied!
